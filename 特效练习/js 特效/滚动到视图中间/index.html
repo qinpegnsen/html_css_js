@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul {
+        height: 200px;
+        overflow-y: scroll;
+        position: relative;
+    }
+
+    li {
+        height: 30px;
+        line-height: 30px;
+    }
+</style>
+
+<body>
+    <ul>
+        <li>111</li>
+        <li>112</li>
+        <li>113</li>
+        <li>114</li>
+        <li>151</li>
+        <li>114541</li>
+        <li>11451</li>
+        <li>141411</li>
+        <li>11453411</li>
+        <li>112811</li>
+        <li>1124231</li>
+        <li>11446491</li>
+        <li>1233</li>
+        <li>111231231</li>
+        <li>11145645</li>
+    </ul>
+</body>
+<script>
+    (function () {
+        var li = document.querySelectorAll("li");
+        var ul = document.querySelector("ul");
+        var height =parseInt( getComputedStyle(document.querySelector("ul")).height );
+        li.forEach(item => {
+            item.onclick = function () {
+                // this.style = "color:red"
+                // 用自带的方法  但是如果父亲和爷爷都有滚动条的话，都会动
+                // this.scrollIntoView(false)
+                /* 
+                    1. scrollTop 小于0是不动的
+                    2. li 的offsetTop 是以dom 中的为准，是不会变的，通过滚动到试图中间只是视觉上变了，所以如果scollTop 等于  的offsetTop 就到最上面了
+                    3. top-height/2 所以说当到了中间的时候才会动
+                 */
+                
+                let top=this.offsetTop;
+                console.log('top',top);
+                ul.scrollTop=top-height/2;
+            }
+        })
+    })()
+</script>
+
+</html>

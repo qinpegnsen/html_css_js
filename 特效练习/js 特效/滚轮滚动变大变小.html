@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="function.js"></script>
+</head>
+<style>
+   
+</style>
+<body>
+    <div style="width: 100px;
+    height: 100px;
+    background: red;">
+
+    </div>
+</body>
+<script>
+    let el=document.querySelector('div');
+    let step=10
+    mouseWheel(el,()=>{
+        el.style.width=el.style.height=parseInt( el.style.width)+step+'px'
+        console.log('下');
+        
+    },()=>{
+        el.style.width=el.style.height=parseInt( el.style.width)-step+'px'
+        console.log('上');
+    })
+
+</script>
+</html>

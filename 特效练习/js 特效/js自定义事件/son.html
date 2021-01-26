@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    我是子元素 <button>点击我发送事件</button>
+</body>
+<script>
+
+    var buton = document.querySelector("button");
+
+    var emit1 = new CustomEvent('emit', { detail: 'qps' })
+    buton.onclick = function () {
+        window.top.dispatchEvent(emit1)// 注意：  如Window top 属性  返回当前窗口的最顶层浏览器窗口。
+        // son.html:20 Uncaught DOMException: Blocked a frame with origin "null" from accessing a cross-origin frame.    会报错  需要在服务端打开 协议是http 不是 file ，npm 安装 anywhere
+        console.log(window)
+    }
+    window.addEventListener("emit", (e) => {
+        console.log(e.detail)  //发给顶层了，所以这里没有执行
+    })
+
+</script>
+
+</html>

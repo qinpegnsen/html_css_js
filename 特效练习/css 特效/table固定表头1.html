@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    /* 
+        table 里面都变为block ，通过浮动来做，但是要注意的是表头一定要减去滚动条的宽度
+        但是要注意边框变粗的问题
+    
+     */
+    table {
+        padding: 0;
+        border-collapse: collapse;
+        min-width: 610px;
+        width: 100%;
+
+    }
+
+    td,
+    th {
+        border: 1px solid red;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    tr {
+        height: 30px;
+    }
+
+    tbody {
+        overflow-x: auto;
+        overflow-y: scroll;
+        height: 280px;
+    }
+    thead{
+        /* 
+            减去 tbody 滚动条的的宽度
+         */
+        margin-right: 17px;
+    }
+
+    th,
+    td,
+    tr,
+    thead,
+    table,
+    tbody {
+        display: block;
+        box-sizing: border-box;
+    }
+    td:nth-child(1),
+    th:nth-child(1) {
+        width: 20%;
+        /* 但是要注意边框变粗的问题 */
+        border-right-width: 0px;
+    }
+
+    td:nth-child(2),
+    th:nth-child(2) {
+        width: 20%;
+        float: left;
+        /* 但是要注意边框变粗的问题 */
+        border-right-width: 0px;
+    }
+
+    td:nth-child(3),
+    th:nth-child(3) {
+        width: 60%;
+        float: left;
+    }
+
+    td,
+    th {
+        float: left;
+    }
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>班级</th>
+                <th>性别</th>
+                <th>姓名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>男</td>
+                <td>秦鹏森</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>男</td>
+                <td>秦鹏森1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>男</td>
+                <td>秦鹏森2</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>男</td>
+                <td>秦鹏森3</td>
+            </tr>
+            <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森2</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森3</td>
+                </tr>
+                <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森3</td>
+                    </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

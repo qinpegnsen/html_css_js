@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=" utf-8">
+    <meta name="author" content="http://www.softwhy.com/" />
+    <title>蚂蚁部落</title>
+    <style type="text/css">
+        /* 
+        粘性定位
+         */
+        .container {
+            background: #eee;
+            width: 400px;
+            height: 1000px;
+            margin: 120px auto;
+        }
+
+        .sticky {
+            position: sticky;
+            height: 60px;
+            line-height: 60px;
+            margin-bottom: 30px;
+            background: #ccc;
+            top: 250px;
+        }
+
+        div {
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* 
+        伪元素 after 和 before 使用
+
+            - content 可以当做一个行内元素来使用
+
+                从下面可以看出来 其实就和span 差不多，默认宽为0，高为21 （行内元素）
+
+                当设置content 的内容是，width 边长，或者是 进行定位变为块状元素
+         */
+
+        p {
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+
+        p::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background: green;
+            border: 1px solid blueviolet;
+        }
+
+        span {
+            width: 100px;
+            height: 100px;
+            background: green;
+            border: 1px solid blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>双方就立刻付老师；</p>
+        <div class="sticky">蚂蚁部落一</div>
+        <div class="sticky">蚂蚁部落二</div>
+        <div class="sticky">蚂蚁部落三</div>
+        <div class="sticky">蚂蚁部落四</div>
+        <div>删掉了看风景阿里是否健康路撒</div>
+    </div>
+
+
+    <p></p>
+    <span></span>
+
+</body>
+
+</html>

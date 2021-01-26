@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .historyList {
+        position: relative;
+    }
+
+    .historyList::after {
+        content: "";
+        background: red;
+        width: 1px;
+        top: 5px;
+        bottom: 25px;
+        position: absolute;
+    }
+    .historyList li{
+        height:30px;
+        
+    }
+    .historyList li::after {
+        content: "";
+        width: 9px;
+        display: block;
+        border-radius: 50%;
+        height: 9px;
+        background: red;
+        position: absolute;
+        left:-4px;
+    }
+    /* 
+        为了不影响布局，所以
+            1. 用伪元素并且content 为“”
+            2. 用绝对定位
+            3. 如果不齐  可以移动ul和伪类或者是li 的伪类    
+     */
+</style>
+
+<body>
+    <ul class="historyList">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>

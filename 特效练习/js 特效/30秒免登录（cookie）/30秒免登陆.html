@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<script src="js/function.js"></script>
+		<script>
+			/* 
+				注意 在chrome 中得以服务器模式打开，才有效果
+			 */
+
+
+		$(function(){
+			var zhanghao=document.forms[0].zhanghao;
+			var mima=document.forms[0].mima;
+			var check=document.forms[0].check;
+			var btn=document.forms[0].btn;				
+			console.log(zhanghao)
+			console.log(zhanghao.name)
+			//虽然zhanghao.name=zhanghao，但是这两句话并不一样
+			console.dir(check)
+			btn.onclick=function(){
+				if(zhanghao.value=="123456"&&mima.value=="123456"){
+					location.href="登录后主页.html";
+					if(check.checked){
+						setCookie(zhanghao.name,zhanghao.value,30);
+						setCookie(mima.name,mima.value,30);
+					}
+				}else{
+					alert("输入错误")
+				}
+			}
+//			在进一步的思考,如果检测到了直接登录
+			var sign=getCookie(zhanghao.name);
+			//value和setCookie(zhanghao.name,zhanghao.value,30);中的value不一样，yige存在页面中，一个在服务器里
+			if(sign){
+				location.href="登录后主页.html"
+			}
+		})
+		</script>
+		<style>
+			form{
+				width:300px;
+				height:auto;
+				margin:20px auto;
+				background:#eee;
+				text-align: center;				
+			}			
+		</style>
+	</head>
+	<body>
+		<form action="">
+			账号：<input type="text" name="zhanghao" value="请输入账号"/><br />
+			密码：<input type="password" name="mima" value="请输入密码"/><br />
+			<input type="checkbox" name="check"/>  30秒之内免登陆<br />
+			<input type="button" value="登录"  name="btn"/>
+			<input type="reset"  value="重置" name="res"/>
+		</form>
+	</body>
+</html>

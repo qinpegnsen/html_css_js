@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>dianwo </div>
+</body>
+<script>
+    /* 
+    
+        dom 事件  <div onclick> <>
+
+        js 属性事件  div.οnclick=
+
+        js 监听事件 addeventlinsener
+
+        总结： 
+
+            1.如果 dom 中写的有 事件  会先执行dom 中的事件 和 js 中 属性事件当然 会覆盖 ，在执行监听事件（addEventlisnter）
+
+            2.如果dom中没有事件，会按顺序执行
+
+            3.其他的事件会覆盖，但是add
+
+    
+     */
+    let div = document.querySelector("div");
+    div.onclick = function () {
+        console.log(1)
+    }
+    div.onclick = function () {
+        console.log(2)
+    }
+    div.addEventListener('click',function(){
+        console.log('addEventListener1')
+    })
+    div.addEventListener('click',function(){
+        console.log('addEventListener2')
+    })
+
+</script>
+
+</html>

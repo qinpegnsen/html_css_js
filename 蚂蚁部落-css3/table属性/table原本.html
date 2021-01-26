@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+        table,td,th{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        .wrap{
+            background:red;
+        }
+        table{
+            width:400px;
+        }
+    </style>
+    <body>
+
+        注意： 在table上直接写 border（代替为在td上写） cellpadding（代替为border-collapse）   cellspacing（border-spacing 一般不用写，因为collapse的时候就没有空间了，就是0了） 都已废弃，https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/table，不要再用
+
+        <table>
+            <caption>课程表</caption>
+            <colgroup>
+                <col style="width:300px;">   
+                <col style="widows:100px;">   
+                <col style="width:100px;">   
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>课程</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>o</td>
+                    <td>s</td>
+                    <td>s</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>周一</td>
+                    <td>英语课</td>
+                    <td>亲喷森</td>
+                </tr>
+                <tr>
+                    <td>周er</td>
+                    <td>英语课</td>
+                    <td>亲喷森</td>
+                </tr>
+                <tr>
+                    <td>周三</td>
+                    <td>英语课</td>
+                    <td>亲喷森</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="wrap">
+            <div>sdffffffffffffffffasdfasdfasdfsadf</div> 
+            <div style="background-color: pink;">亲喷森</div> 
+        </div>
+    </body>
+</html>

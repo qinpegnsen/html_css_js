@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../function.js"></script>
+    <script src="../animate.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .box {
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        position: relative;
+    }
+
+    .left {
+        width: 2px;
+        height: 0px;
+        background: green;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .top {
+        width: 0px;
+        height: 2px;
+        background: green;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .bottom {
+        width: 0px;
+        height: 2px;
+        background: green;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .right {
+        width: 2px;
+        height: 0px;
+        background: green;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+</style>
+
+<body>
+    <ul class="box">
+        <li class="left"></li>
+        <li class="top"></li>
+        <li class="right"></li>
+        <li class="bottom"></li>
+    </ul>
+</body>
+<script>
+    $(function () {
+        function borderAnimate(obj) {
+            var box = $(obj)[0];
+            var left = $(".left", box)[0]
+            var top = $(".top", box)[0];
+            var right = $(".right", box)[0];
+            var bottom = $(".bottom", box)[0];
+
+            box.onmouseover = function () {
+                animate(left, { height: 200 }, 500)
+                animate(top, { width: 200 }, 500)
+                animate(bottom, { width: 200 }, 500)
+                animate(right, { height: 200 }, 500)
+            }
+            box.onmouseout = function () {
+                animate(left, { height: 0 }, 500)
+                animate(top, { width: 0 }, 500)
+                animate(bottom, { width: 0 }, 500)
+                animate(right, { height: 0 }, 500)
+            }
+        }
+        borderAnimate('.box')
+    })
+
+
+</script>
+
+</html>

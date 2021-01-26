@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../function.js"></script>
+    <script src="../animate.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .smallbox {
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+
+    .smallbox img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .zhao {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+    }
+
+    .bigbox {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        background: red;
+        left: 200px;
+        top: 0px;
+        /* 图片按比例放大后比这个bigbox 大 */
+        overflow: hidden;
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="smallbox">
+        <img src="http://pic61.nipic.com/file/20150307/6470615_160138641000_2.jpg" alt="" class="smallbig">
+        <div class="zhao"></div>
+    </div>
+    <div class="bigbox">
+        <img src="http://pic61.nipic.com/file/20150307/6470615_160138641000_2.jpg" alt="" class="bigimg">
+    </div>
+</body>
+<script>
+    /* 
+        1. 获取比例
+           想要把遮罩覆盖的内容（遮罩相当于放大镜），呈现在右边200的方格里。所以比例就是200/50
+        2. 赋值大图
+        3. 动起来
+        4. 但是会一直闪  这是什么鬼
+               可以看到总是闪回到00的位置    这是因为 onmousemove 时候的事件对象变了
+               1.当在smallbox上移动时候，事件对象是smallbox
+               2.当在zhao上移动时候，事件对象就变成了zhao
+               但是事件是在smallbox上加的，为啥zhao也会相应这个事件呢？可以看two
+        5. 所以要在最上面在加一层膜，透明的，大小和smallbox一样，见three
+    */
+    $(function () {
+        var zhao = $(".zhao")[0]
+        var bigbox = $(".bigbox")[0]
+        var smallbox = $(".smallbox")[0]
+        var bigimg = $(".bigimg")[0]
+        var bili = parseInt(getStyle(bigbox, 'width')) / parseInt(getStyle(zhao, 'width'));
+        bigimg.style.width = bili * smallbox.offsetWidth + "px";
+        bigimg.style.height = bili * smallbox.offsetHeight + "px";
+
+
+        hover(smallbox, function () {
+            zhao.style.display = 'block'
+            bigbox.style.display = 'block'
+        }, function () {
+            zhao.style.display = 'none'
+            bigbox.style.display = 'none'
+        })
+
+        smallbox.onmousemove = function (e) {
+            var ev = e || window.event;
+            var ox = ev.offsetX;
+            var oy = ev.offsetY;
+
+            // 让光标在遮罩的中心
+            var left = ox - zhao.offsetWidth / 2;
+            var top = oy - zhao.offsetHeight / 2;
+            //边界控制
+            if (left < 0) {
+                left = 0
+            }
+            if (top < 0) {
+                top = 0;
+            }
+            if (left > smallbox.offsetWidth - zhao.offsetWidth) {
+                left = smallbox.offsetWidth - zhao.offsetWidth;
+            }
+            if (top > smallbox.offsetHeight - zhao.offsetHeight) {
+                top = smallbox.offsetHeight - zhao.offsetHeight;
+            }
+            //赋值
+            zhao.style.left = left + 'px'
+            zhao.style.top = top + 'px'
+            //放大的图片的移动
+            bigimg.style.marginLeft = -bili * left + "px";
+            bigimg.style.marginTop = -bili * top + "px";
+        }
+    })
+
+</script>
+
+</html>

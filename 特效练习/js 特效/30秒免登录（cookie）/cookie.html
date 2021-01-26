@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<script src="js/function.js"></script>	
+	</head>
+	<script>
+/* 
+		在 chrome 中必须得以服务器模式（http 或者是 https）打开才能在开发者工具看到效果
+*/
+
+
+	// 	document.cookie="zhangsan=li"
+	//  document.cookie="zhanghao=lisi";
+	//  document.cookie="pass=123";		
+//
+	var nowtime =new Date();
+	nowtime.setTime(nowtime.getTime()+30*1000)
+	console.log(nowtime)
+	document.cookie="pass=2223; expires="+nowtime.toGMTString();
+	console.log(document.cookie)
+
+//	document.cookie="xingming=qinpengsgen";
+//	document.cookie="aa=bb"
+//	console.log(document.cookie)
+//	document.cookie既可以设置cookie，又可以获取cookie
+
+//	封装测试
+//	setCookie('aa','bb')
+//	console.log(getCookie('aa'))
+//	setCookie("aa","bb")
+//	delCookie("aa")
+//	console.log(getCookie("aa"));
+	</script>
+	<body>
+	</body>
+</html>

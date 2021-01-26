@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width:200px;
+        height:200px;
+        background: red;
+        display:none;
+    }
+</style>
+<body>
+    <div class="box"></div>
+    
+</body>
+<script>
+    (function(){
+        var width=document.querySelector('.box').offsetWidth   
+        var width1=getComputedStyle(document.querySelector(".box")).width;
+        console.log('width',width);
+        console.log('width1',width1);
+        
+
+
+    })()
+</script>
+</html>

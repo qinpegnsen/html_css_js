@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src=../function.js></script>
+	<script src=../animate.js></script>
+</head>
+<body>
+	<style>
+		*{
+			margin: 0;
+			padding:0;
+		}
+		.box{
+			width: 200px;
+			height:200px;
+			position: fixed;
+			left:0;
+			top:0;
+			background: red;
+		}
+	</style>
+	<div class="box">取消默认事件，要不然会选中我</div>
+</body>
+<script>
+	// 面向对象
+	$(function(){
+		
+		function Drag(obj){
+			this.obj=obj
+		}
+		Drag.prototype={
+			drag:function(){
+				let me=this;
+				me.down()
+			},
+			down:function(e){
+				let me=this;
+				me.obj.onmousedown=function(e){
+					var ev=e||window.event;
+					me.ox=ev.offsetX;
+					me.oy=ev.offsetY;
+					me.ow=me.obj.offsetWidth;
+					me.oh=me.obj.offsetHeight;
+					me.cw=document.documentElement.clientWidth
+					me.ch= document.documentElement.clientHeight;
+					me.move()
+				}
+			},
+			move:function(){
+				let me=this;
+				document.onmousemove=function(e){
+					var ev=e||window.event;
+					if(ev.returnValue){
+						ev.returnValue=false;  //ie
+					}else{
+						ev.preventDefault()   //翻译为预防默认值
+					}
+					//上面这句话的意思是消除单机拖动会选中文字
+					me.cx=ev.clientX;
+					me.cy=ev.clientY;
+					me.left=me.cx-me.ox;
+					me.top=me.cy-me.oy;
+					if(me.left<=0){
+						me.left=0;
+					}
+					if(me.top<=0){
+						me.top=0;
+					}
+				
+					if(me.left>=me.cw-me.ow){
+						me.left=me.cw-me.ow;
+					}
+					if(me.top>=me.ch-me.oh){
+						me.top=me.ch-me.oh;
+					}
+					me.obj.style.left=me.left+"px";
+					me.obj.style.top=me.top+"px";
+					me.up()
+				}
+				
+			},
+			up:function(){
+				let me=this;
+				me.obj.onmouseup=function(){
+					document.onmousemove=null;
+				}
+			}
+		}
+		var obj=$(".box")[0];
+		var newObj=new Drag(obj);
+		newObj.drag()
+
+
+	})
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+<style>
+    .wrap {
+        height: 3000px;
+        display: block;
+    }
+</style>
+
+<body>
+    <a class="wrap" href="#top">到回到顶部按钮</a>
+    <button id="top" >回到顶部</button>
+</body>
+<script src="../jquery.js"></script>
+<script>
+    // $(function () {//如果写到body上面需要放开，从上到下执行
+        $("button").click(() => {
+            $("body,html").animate({ scrollTop: '0px' })
+        })
+    // })
+
+
+</script>
+
+</html>

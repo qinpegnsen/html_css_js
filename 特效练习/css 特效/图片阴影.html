@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    /*
+    box-shadow 和   filter: drop-shadow 的共同点是 ：
+
+        1. 投影出来的图片都可以设置改变yanse
+
+    区别是：
+
+        1. 如果是透明的图片，filter 可以模拟真实世界的投影，穿过图片，所以图片的内容会被保存下来，但是在不透明的图片中 的效果是一样的
+    
+    
+     */
+
+
+
+    /* 
+        如果是以前的可以看出来，是一个蓝色的方块 
+      */
+    .aa {
+        box-shadow: 400px 0px blue;
+    }
+
+    /* 
+        如果用filter 可以看到投影出来的图片变了颜色，而且还保持图片的形状   这个图片是透明的图片 png，因为是透明的，所以光线穿了过了，这个属性可以模拟真实生活的场景
+     */
+    /* .aa{
+         filter: drop-shadow(240px 0px  blue);
+     } */
+</style>
+
+<body>
+    <!-- 透明的图片 -->
+    <img src="./tongbu.png" alt="" class="aa">
+    <!-- 不透明的图片 -->
+    <div>
+        <!-- 在不透明的图片的效果是一样的 -->
+        <img src="./tutongming.jpg" alt="" class="aa">
+    </div>
+
+</body>
+
+</html>

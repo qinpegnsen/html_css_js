@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" @click="imgChange" accept="image/*" multiple> <button>删除照片</button>
+    <img src="" alt="">
+</body>
+<script>
+    var button = document.querySelector("button");
+    var input = document.querySelector("input");
+    var img = document.querySelector("img");
+    button.onclick=function(){
+        img.src=""
+    }
+    input.onchange = function (files) {
+        let file = files.target.files[0];
+        console.log('file',file);
+        
+
+        let reader = new FileReader();//这一步的时候 result 还是 null
+        reader.readAsDataURL(file)//作为base64  读出，当读完的时候，打印 reader，可以看到reader 的resulst 的值变成了base64 的值；
+        
+        reader.onload = e => {
+            imgFile = e.target.result;
+            img.src = imgFile;
+
+            // 改变一下 input 因为用的是onchange事件，当上传完a照片，删除a照片后在上传a照片是不管用的，因为onchange 没有检测到图片的变化，所以必须得加上下面的代码
+            input.setAttribute('type','text')
+            input.setAttribute('type','file')
+
+        }
+        var formData = new FormData();
+        formData.append("username", "Groucho");
+        formData.append("userfile", file);
+        formData.append("aa", 1);
+        let obj={...formData,aa:2}//不能这样写
+        var request = new XMLHttpRequest();
+        request.open("POST", "http://api2.zolerp.cn//api/Misc/UploadImg");  //管家测试的地址  后台写在了一个公共的方法里，不需要认证，任何人都可以调，这是很危险的（正式也是一样的）
+        request.setRequestHeader("Content-Type","multipart/form-data");  //最好加上这个，要不然在浏览器呈现的不一样
+        request.send(formData);
+    }
+</script>
+<script>    
+    
+</script>
+</html>

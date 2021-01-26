@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starter Template for Bootstrap</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+</head>
+<style type="text/css">
+    /* 
+        bootstrap为什么是12栅格
+
+        因为12是1，2，3，4，6的最小公倍数，所以12列栅格系统相对较灵活，支持将一行分成1列，2列，3列，4列，6列。
+
+        若是想要支持5列，那1，2，3，4，5的最小公倍数是60，而60这个数对于栅格系统来说显然太大了。
+    
+        @media screen and  一定要空格隔开，否则不管用 还有 calc ( a + b)
+    
+     */
+    .container div {
+        border: solid 1px rgb(119, 73, 73);
+        /* 
+                注意：这里一定要加上这句  否则的话就是标准盒子，每一个除了8.333 还有2px 的边框，导致最后一个放不下了
+             */
+        box-sizing: border-box;
+    }
+
+    .col-xs-4 {
+        font-weight: bold;
+    }
+
+    @media screen and (min-width: 986px) {
+        .col-md-1 {
+            width: 8.333333333333333333333333%;
+            float: left;
+        }
+
+        .col-md-6 {
+            width: 50%;
+            float: left;
+        }
+    }
+    @media screen and (max-width: 968px) {
+        .col-sm-8 {
+            width: 66.66666666%;
+            float: left;
+        }
+
+        .col-sm-4 {
+            width: 33.33333333%;
+            float: left;
+        }
+    }
+</style>
+
+<body>
+    <div class="test"></div>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+                <div class="col-md-1">col-md-1</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-8">col-sm-6</div>
+                <div class="col-md-6 col-sm-4">col-sm-6</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">col-xs-4</div>
+                <div class="col-xs-4">col-xs-4</div>
+                <div class="col-xs-4">col-xs-4</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

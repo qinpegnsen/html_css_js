@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+    /* sticky 实现 */
+    table {
+        border-collapse: collapse;
+    }
+
+    td,
+    th {
+        border: 1px solid red;
+        /* 有的英文导致不能换行 */
+        word-break: break-all;
+      
+    }
+    .tableWrap{
+       height: 300px;
+       position: relative;
+       overflow: auto;
+    }
+    /* 
+    
+        注意：sticky 必须得和top left right bottom 搭配
+     */
+    .sticky{
+        position:sticky;
+        top:0;
+        z-index: 999;
+    }
+    .scrollHead{
+        position: absolute;
+        top: 0;
+    }
+    </style>
+
+<body>
+    <div class="tableWrap">
+        <table class="fixTable sticky" style="background: red;">
+                <colgroup>
+                    <col style="width:500px"></col>   
+                    <col style="width:250px"></col>   
+                    <col style="width:250px"></col>   
+                </colgroup>
+                <thead>
+                        <tr>
+                            <th >班级</th>
+                            <th>性别</th>
+                            <th>姓名</th>
+                        </tr>
+                    </thead>
+        </table>
+        <table class="scrollHead">
+            <colgroup>
+                <col style="width:500px"></col>   
+                <col style="width:250px"></col>   
+                <col style="width:250px"></col>  
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>班级示范点手动阀手动阀</th>
+                    <th>性别</th>
+                    <th>姓名</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>阿斯顿发送到发送到发送到都是带饭感受到阿斯顿发送到发送到发送到都是带饭感受到分公司大股东反感阿斯顿发送到发送到发送到都是带饭感受到分公司大股东反感分公司大股东反感</td>
+                    <td>男</td>
+                    <td>秦鹏森</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男sdfasdf</td>
+                    <td>秦鹏森1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男sdfasdfsafsdfsadf</td>
+                    <td>秦鹏森2</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦sdfasdfasdfasdfffffffffff鹏森3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森2</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>阿斯</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森2</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>男</td>
+                    <td>秦鹏森3</td>
+                </tr>
+                <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森3</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森3</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森2</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>男</td>
+                        <td>秦鹏森3</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

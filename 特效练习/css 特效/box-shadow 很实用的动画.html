@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 100vw;
+        margin: auto;
+        border: 1px solid red;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+   
+    .active{    
+        transform: translateY(-250px);
+        box-shadow: 0px 0px 0px 1000px rgba(0,0,0,0.2);
+    }
+</style>
+<body>
+    <div>   
+        <h3 style="text-align: center;">顶部</h3>
+        <input type="text" class="a" placeholder="shuru">
+        <button>
+            底部按钮
+        </button>
+    </div>
+</body>
+<script>
+    let bth=document.querySelector('button')
+    let input=document.querySelector('input')
+    bth.onclick=function(){
+        input.classList.toggle('active')
+    }
+
+</script>
+</html>

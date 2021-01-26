@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .wrap{
+        border:1px solid red;
+        width: fit-content;
+    }
+    p{
+        background: yellow;
+    }
+</style>
+<body>
+    <!-- 
+        fit-content 可以说是block和inline-block之间的值，他是占据一行，但是又有行元素的宽度，所以一行的其他的空间就都是margin了，和 块状元素设置宽度，然后有了margin，然后margin：auto 就居中了
+        所以所可以用margin:auto  来实现元素的居中  
+        在页面占据的表现还和之前是样的  ，因为是div 标签，肯定是占据一行的，但是宽度就不是一行了，min-content  max-content 也可以用margin：auto 来居中
+
+        fit-content 其实跟 max-content 差不多
+
+     -->
+  
+    <div class="wrap">  
+        <span>撒旦法地方付付付付付付付付付付</span>
+        <span>我是中文</span>
+    </div>
+    <div>我是其他div</div>
+</body>
+</html>

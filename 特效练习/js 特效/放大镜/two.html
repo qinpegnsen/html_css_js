@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .wrap{
+        width:200px;
+        height:200px;
+        background: red;
+        position: relative;
+    }
+    .inner{
+        width:50px;
+        height:50px;
+        background: yellow;
+        position: absolute;
+        top:20px;
+        left:20px;
+    }
+</style>
+<body>
+    <div class="wrap">
+        <div class="inner">
+
+        </div>
+    </div>
+    
+</body>
+<script>
+    /* 
+    把事件加到了元素的最外层
+        点击最外层元素里面的元素也会响应事件（因为他也属于最外层元素的），所以准确的说是事件加的了最外层和和最外层里面的每一个元素上
+        其他事件也一样  比如onmousemove 等（放大镜）
+    */
+    (function(){
+        var wrap=document.querySelector(".wrap")
+        var inner=document.querySelector(".inner")
+        wrap.onclick=function(e){
+            console.log(e.target)
+        }
+    })()
+</script>
+</html>

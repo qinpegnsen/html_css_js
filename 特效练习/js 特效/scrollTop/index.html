@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        /* background: red; */
+        height: 2000px;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+    .p{
+        height: 100%;
+    }
+    ul{
+        height:100px;
+    }
+    ul{
+        list-style: none;
+        overflow: auto;
+    }
+</style>
+
+<body>
+    <div>
+        sdddddddd
+        <div class="p">
+            <ul>
+                <li>sdfffffffff</li>
+                <li>sdfffffffff</li>
+                <li>sdfffffffff</li>
+                <li>sdfffffffff</li>
+                <li>sdfffffffff</li>
+                <li>sdfffffffff</li>
+                <li>sdfffffffff</li>
+                <li>sdfffffffff</li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+<script>
+    let winH = document.documentElement.clientHeight;//窗口的高度
+
+    let ul = document.querySelector('ul')
+
+    document.addEventListener("scroll", function () {
+        let scrollH = document.body.scrollTop|| document.documentElement.scrollTop;//chrome  document.documentElement.scrollTop
+        console.log('winH', scrollH);
+    })
+
+    ul.addEventListener("scroll", function () {
+        let ulH =ul.scrollTop
+        console.log('ulH', ulH);
+    })
+
+</script>
+
+</html>

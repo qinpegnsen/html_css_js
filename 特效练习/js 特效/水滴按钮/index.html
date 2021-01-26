@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes move {
+        0% {
+            transform: scale(0.5, 1.2)
+        }
+
+        25% {
+            transform: scale(1.4, 0.8)
+        }
+
+        50% {
+            transform: scale(1.3, 1.5)
+        }
+
+        75% {
+            transform: scale(0.8, 1.2)
+        }
+
+        100% {
+            transform: scale(1, 1)
+        }
+    }
+
+    .water {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        width: 50px;
+        height: 45px;
+        background: red;
+        border-radius: 50%;
+        transition: all 1s;
+    }
+    .animate{
+        animation: move 1s;
+    }
+
+    /* .water:hover{
+        animation: move 5s;
+    } */
+</style>
+
+<body>
+    <div class="water"></div>
+</body>
+
+<script>
+
+    // 1.如果使用css hove 的动画立马就停止了;
+    // 1.通过style的方式    2. 通过类名的方式
+
+    /* 
+        1. 只用一个事件监听  但是要加延时
+        2. 用两个事件监听  在动画结束后立马清除掉样式
+    
+     */
+    var water = document.querySelector('.water');
+
+    // 1
+    // water.addEventListener("mousemove", function () {
+    //     water.style.cssText = ""
+    //     // setTimeout(() => {
+    //         water.style.animation = "move 1s"
+    //     // }, 1000)
+    // })
+    // water.addEventListener("animationend",function(e){
+    //     console.log('e',e);
+    //     console.log('e.target',e.target);
+    //     water.style.cssText=""
+    // })
+
+
+
+
+    // 2
+    water.addEventListener("mousemove", function () {
+        // water.classList.add('animate')
+        water.className="animate water"
+    })
+    water.addEventListener("animationend",function(e){
+        // water.classList.remove('animate')
+        water.className=" water"
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    /* 
+        none
+            元素永远不会成为鼠标事件的target。但是，当其后代元素的pointer-events属性指定其他值时，
+            鼠标事件可以指向后代元素，在这种情况下，鼠标事件将在捕获或冒泡阶段触发父元素的事件侦听器。
+
+
+        css display 与 opacity 和 visibility的区别
+            1 opacity=0，该元素隐藏起来了，但不会改变页面布局，并且，如果该元素已经绑定一些事件，如click事件，那么点击该区域，也能触发点击事件的
+            2 visibility=hidden，该元素隐藏起来了，但不会改变页面布局，但是不会触发该元素已经绑定的事件
+            3 display=none，把元素隐藏起来，并且会改变页面布局，可以理解成在页面中把该元素删除掉一样
+    
+     */
+    .checkbox {
+        position: relative;
+    }
+
+    .checkbox input {
+        opacity: 0;
+    }
+
+    /* 
+    1. 有input 当input 选中的时候变化
+    */
+    .checkbox input[type=checkbox]:checked+.icon {
+        background: #3366ff;
+        border-color: #3366ff;
+    }
+    /* 
+    2. 没有input 当有 on 类的时候变化 
+    */
+    .on{
+        background: #3366ff;
+        border-color: #3366ff;
+    }
+
+    .checkbox .icon {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #d0d7df;
+        left: 0px;
+        top: 3px;
+        /* 重要一点 结合上面none 看看 */
+        pointer-events: none;
+        border-radius: 2px;
+    }
+
+    .icon::after {
+        content: '';
+        position: absolute;
+        width: 9px;
+        height: 4px;
+        border: 2px solid white;
+        border-top: 0px;
+        border-right: 0px;
+        transform: rotate(-45deg);
+        top: 2px;
+        left: 2px;
+    }
+</style>
+
+<body>
+    <label class="checkbox">
+        <input type="checkbox">
+        <i class="icon"></i>
+        男
+    </div>
+    <label class="checkbox">
+        <input type="checkbox">
+        <i class="icon"></i>
+        女
+    </label>
+    <input type="checkbox">
+</body>
+<script>
+    (function () {
+
+
+
+
+    })()
+
+
+</script>
+
+</html>

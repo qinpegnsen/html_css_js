@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../function.js"></script>
+    <script src="../animate.js"></script>
+</head>
+<style>
+    .box{
+        width:100px;
+        height:100px;
+        background: red;
+    }
+</style>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+<script>
+    $(function(){
+        var step=10;
+        function change(){
+            let box=$(".box")[0];
+            let width=parseInt(getStyle(box,'width'));
+            let height=parseInt(getStyle(box,'height'));
+            let moveWidth=width+step
+            let moveHeight=height+step
+            if(moveWidth>=400){
+                step*=-1;
+                moveWidth=400;
+                moveHeight=400;
+            }
+            if(moveHeight<=200){
+                step*=-1;
+                moveWidth=200;
+                moveHeight=200;
+            }
+            box.style.cssText="width:"+moveWidth+"px;height:"+moveHeight+"px;"
+        }
+        setInterval(change,200)
+    })
+</script>
+</html>

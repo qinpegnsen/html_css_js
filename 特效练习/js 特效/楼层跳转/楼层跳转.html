@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="animate.js"></script>
+	<script src="function.js"></script>
+</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			list-style:none;
+		}
+		.header{
+			width: 100%;
+			height:30px;
+			background: red;
+
+		}
+		.nav{
+			width: 1200px;
+			height: 400px;
+			background: green;
+			margin:20px auto;
+		}
+		.banner{
+			width: 1200px;
+			height:500px;
+			background: blue;
+			margin:0 auto;
+
+		}
+		.floors{
+			width: 1200px;
+			margin:0 auto;
+			/*border:1px solid black;*/
+
+		}
+		.floors li{
+			width: 1200px;
+			height:700px;
+			margin:100px auto;
+			border:1px solid black;
+			font-size: 30px;
+			text-align: center;
+			line-height: 700px;
+			color:red;
+		}
+		.footer{
+			width: 100%;
+			height:40px;
+			background: gray;
+		}
+		.floor_nav{
+			width: 40px;
+			height:400px;
+			position: fixed;
+			right:0;
+			top:0;
+			bottom:0;
+			margin-top:auto;
+			margin-bottom:auto;
+			border:1px solid black;
+			display: none;
+
+		}
+		.floor_nav .first{
+			background: green;
+		}
+		.floor_nav li{
+			width: 38px;
+			height:38px;
+			border:1px solid black;
+			font-size: 25px;
+			color:red;
+			text-align: center;
+			line-height: 38px;
+
+		}
+		#search{
+		width: 100%;
+		height: 0;
+		background: red;
+		position: fixed;
+		left: 0;
+		top: 0;
+		/*z-index: 10;*/
+		overflow: hidden;
+		/*这里必须写，内容为王，高度为零。内容也会跑出来*/
+	}
+	</style>
+
+<body style="position: relative">
+	<div id="search"></div>
+	<div class="header"></div>
+	<div class="nav"></div>
+	<div class="banner"></div>
+	<ul class="floors">
+		<li class="first">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<ul class="floor_nav">
+		<li class="first">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+	<div class="footer"></div>
+	<script>
+		//通过获取滚动条的高度来实现。记住这个公式：楼层.offsetTop=scrollTop+窗口的高度
+		// 34一步一个问题，3每个都通过的问题，4都会溢出的问题
+		$(function(){
+			var floors=$(".floors")[0];
+			var floor=$("li",floors);
+			var otop=floor[0].offsetTop;
+			var floor_nav=$(".floor_nav")[0];
+			var lis=$("li",floor_nav)
+			// console.log(lis)
+			var scrollTop=0;
+			var ch=document.documentElement.clientHeight;
+			//onscroll一滚动获取高度
+			var flag=true;
+			var nowindex=0;
+			var flag=true;
+			var flag1=true;
+			var flag2=false;
+			console.log(floor[5].offsetTop)
+			// console.log(floor[this.index].offsetTop)
+			window.onscroll=function(){
+				//第一步当楼层一刚出来的时候，导航栏显示
+				var obj=document.body.scrollTop?document.body:document.documentElement;
+				scrollTop=obj.scrollTop;
+				// console.log(scrollTop)
+				if(scrollTop>=otop-ch){
+					floor_nav.style.display="block";
+					if(flag1){
+						flag1=false;
+						animate($("#search"),{height:100},500,function(){
+							flag2=true
+						})
+					}			
+
+				}else{
+					floor_nav.style.display="none";			
+					if(flag2){
+						flag2=false;
+					animate($("#search"),{height:0},500
+						,function(){
+						flag1=true;
+					}
+					)
+					}			
+					
+				}
+				//第二步，当楼层变化的时候导航栏对应的背景色也发生变化
+				if(flag){
+					//这里的flag解决的是2-6变化的时候颜色依次变化的问题
+					for(var i=0;i<floor.length;i++){
+						if(scrollTop>floor[i].offsetTop-ch+150){
+							for(var j=0;j<lis.length;j++){
+								lis[j].className=";"
+							}
+							lis[i].className="first";
+							//这里因为没有事件，所以没有this，看第4步，this有5种指代。	
+							nowindex=i;
+						}
+					}
+
+				}
+				
+			}
+			//第三步，点击导航栏的时候，跳转到相应的楼层
+			for(var i=0;i<lis.length;i++){
+				lis[i].index=i;
+				lis[i].onclick=function(){
+						flag=false;
+					for(var j=0;j<lis.length;j++){
+						lis[j].className="";
+					}
+					this.className="first";
+// console.log(this.index)
+// 					 console.log(floor[this.index].offsetTop)
+					 console.log(floor[5].offsetTop)
+					animate(document.body,{scrollTop:floor[this.index].offsetTop},500,function(){
+						// alert(1)
+						flag=true;
+					})
+
+				
+
+					animate(document.documentElement,{scrollTop:floor[this.index].offsetTop},500,function(){
+						flag=true;
+					})
+					// console.log(1)
+					nowindex=this.index;
+				}
+			}
+			//第四步，当鼠标移入移出时候的效果
+			for(var i=0;i<lis.length;i++){
+				lis[i].index=i;
+				lis[i].onmouseover=function(){
+					//注意了这里this的指针的指向
+					this.className="first";
+				}
+				lis[i].onmouseout=function(){
+					//这里必须得做判断。因为不做话，或会把已经点击定位好的颜色去掉，这里要和第三步连接起来
+					if(this.index!=nowindex)
+					this.className="";
+				}
+			}
+		})
+	</script>
+</body>	
+</html>

@@ -1,0 +1,8 @@
+/* 下面是2种写法 */
+/* @import './two.css'; */  
+@import url('./two.css');
+div{
+      width: 200px;
+      height:200px;
+      background: red;
+  }

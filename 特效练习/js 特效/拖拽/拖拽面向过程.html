@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<script src=../function.js> </script> <script src=../animate.js> </script> </head> <style>
+		*{
+			margin:0;
+			padding:0;
+			list-style: none;
+		}
+		.box{
+			width:200px;
+			height:200px;
+			background: red;
+			position: absolute;
+			left:0;
+			top:0; 
+		}
+	</style>
+	<script>
+		/* 
+			首先要明白我们要做的效果是：在元素上按下鼠标左键拖动鼠标开，元素也随着开始拖动，当鼠标抬起，那么元素也不动了(所以写成了下面函数套函数的情形)
+		
+		*/
+		$(function () {
+			var box = $(".box")[0];
+			var ox;
+			var cx;
+			var oy;
+			var cy;
+			var cw = document.documentElement.clientWidth;
+			var ch = document.documentElement.clientHeight;
+			var ow = box.offsetWidth;
+			var oh = box.offsetHeight;
+			box.onmousedown = function (e) {
+
+				var ev = e || window.event;
+				ox = ev.offsetX;
+				oy = ev.offsetY;
+
+				document.onmousemove = function (e) {
+					var ev = e || window.event;
+					cx = ev.clientX;
+					cy = ev.clientY;
+
+					var left = cx - ox;
+					var top = cy - oy;
+					// 边界控制
+					if (left <= 0) {
+						left = 0;
+					}
+					if (top <= 0) {
+						top = 0;
+					}
+					if (left >= cw - ow) {
+						left = cw - ow;
+					}
+					if (top >= ch - oh) {
+						top = ch - oh;
+					}
+					box.style.left = left + 'px';
+					box.style.top = top + 'px';
+				}
+				box.onmouseup = function () {
+					document.onmousemove = null;
+				}
+			}
+
+
+
+		})
+	</script>
+
+<body>
+	<div class="box"></div>
+</body>
+
+</html>

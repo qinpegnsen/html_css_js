@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+        table,td,th{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .wrap{
+            background:red;
+        }
+        table{
+            width:400px;
+            table-layout: fixed;
+
+            /* 
+                table-layout: fixed; 会让列平分宽度
+
+
+                表格和列的宽度通过表格的宽度来设置，某一列的宽度仅由该列首行的单元格决定。在当前列中，该单元格所在行之后的行并不会影响整个列宽。
+
+                使用 “fixed” 布局方式时，整个表格可以在其首行被下载后就被解析和渲染。这样对于 “automatic” 自动布局方式来说可以加速渲染，但是其后的单元格内容并不会自适应当前列宽。任何一个包含溢出内容的单元格可以使用 overflow  属性控制是否允许内容溢出。
+
+                优化了table的加载速度，但是中文没问题 ，英文有超出td的宽度，可以用over-flow来解决
+            
+            
+             */
+        }
+    </style>
+    <body>
+        <table>
+            <caption>课程表</caption>
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>课程</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>o</td>
+                    <td>s</td>
+                    <td>s</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>周一</td>
+                    <td>英语课</td>
+                    <td>亲喷森</td>
+                </tr>
+                <tr>
+                    <td>sadfsafsadsfsadjfklsadjfklsadjklfjasdkljfklsadjflkasdfjsadlkf</td>
+                    <td>阿斯顿发开始来得及福利卡时代峻峰撒多架飞机撒多考虑非健康路撒积分卡拉时代峰峻啊开发撒</td>
+                    <td>亲喷森</td>
+                </tr>
+                <tr>
+                    <td>周三</td>
+                    <td>英语课</td>
+                    <td>亲喷森</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="wrap">
+            <div>sdffffffffffffffffasdfasdfasdfsadf</div> 
+            <div style="background-color: pink;">亲喷森</div> 
+        </div>
+    </body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+    /* 右侧固定悬浮信息 */
+#fixedMessage{
+    position: fixed;
+    height:186px;
+    bottom:122px;
+    right:0px;
+    display: flex;
+    z-index: 999;
+    }
+    #fixedMessageUl{
+        position: relative;
+    }
+    #fixedMessagePhoneWrap{
+        padding-right: 15px;
+        position: absolute;
+        right: 43px;
+        display: none;
+    }
+    #fixedMessageCodeWrap{
+        padding-right: 15px;
+        position: absolute;
+        display: none;
+        top: 0px;
+        right: 43px;
+    }
+    #fixedMessageUl li{
+        cursor: pointer;
+    }
+    #fixedMessagePhone{
+        height:45px;
+        background:white;
+        padding: 0px 10px;
+        line-height: 45px;
+        text-align: center;
+    }
+    #fixedMessageCode{
+        width: 186px;
+        height:186px;
+        background-image: url('./img/fixedMessageQrcode.jpg');
+        background-size: contain;
+        position: relative;
+    }
+    #fixedMessageCode:after{
+        content: "";
+        border:7px solid transparent;
+        border-left-color:white ;
+        position: absolute;
+        right: -14px;
+        top: 60px;
+    }
+    #fixedMessagePhone::after{
+        content: "";
+        border:7px solid transparent;
+        border-left-color:white ;
+        position: absolute;
+        right: 1px;
+        top: 15px;
+    }
+    
+    #fixedMessage li{
+        width:45px;
+        height:45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: white;
+        margin-bottom: 2px;
+    }
+    #fixedMessage .fixedMessagetext{
+        color:#378CEEFF;
+        font-size: 12px;
+    }
+
+</style>
+<body>
+     <!-- 固定的信息 -->
+     <div id="fixedMessage">
+        <ul id="fixedMessageUl">
+            <li onmouseenter="fixedMessageShow('fixedMessagePhoneWrap')"
+                onmouseleave="fixedMessageHide('fixedMessagePhoneWrap')"><img src="./img/fixedPhone.png" alt="">
+                <span class="fixedMessagetext">电话</span>
+                <div  id="fixedMessagePhoneWrap"> 
+                    <div id="fixedMessagePhone">15617953373</div>
+                </div>
+            </li>
+            <li onmouseenter="fixedMessageShow('fixedMessageCodeWrap')"
+                onmouseleave="fixedMessageHide('fixedMessageCodeWrap')">
+                <img src="./img/fixedCode.png" alt="">
+                <span class="fixedMessagetext">二维码</span>
+                <div  id="fixedMessageCodeWrap"> 
+                    <div id="fixedMessageCode"></div>
+                </div>
+            </li>
+            <li onclick="showTryModal()"><img src="./img/fixedUse.png" alt=""><span
+                    class="fixedMessagetext">试用</span></li>
+            <li onclick="scrollToTop()"><img src="./img/fixedTop.png" alt=""></li>
+        </ul>
+    </div>
+</body>
+<script src="../jquery.js"></script>
+<script>
+// 此种写法参考小米  其实更好
+function fixedMessageShow(el) {
+    $(`#${el}`).fadeIn(3)
+}
+function fixedMessageHide(el) {
+    $(`#${el}`).fadeOut(1)
+}
+</script>
+</html>

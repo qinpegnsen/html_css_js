@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+        table,td,th{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        table{
+            width:400px;
+            table-layout: fixed;
+        }
+        /* 
+        
+           在首次加载的时候，加载到表头就固定了宽度，算法跟默认的自动算法不一样，速度以比较快，不用等表格都加载完才确定列的宽度
+        
+         */
+    </style>
+    <body>
+        <table>
+            <caption>课程表</caption>
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>课程</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>o</td>
+                    <td>s</td>
+                    <td>s</td>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>周一</td>
+                    <td>英语课</td>
+                    <td>亲喷森</td>
+                </tr>
+                <tr>
+                    <td>周er</td>
+                    <td>英语课</td>
+                    <td>亲喷森</td>
+                </tr>
+                <tr>
+                    <td>周三</td>
+                    <td>英语课</td>
+                    <td>亲喷森</td>
+                </tr>
+            </tbody>
+        </table>
+
+       
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .wrap{
+        border:1px solid red;
+        width: max-content;
+        /* width: min-content; */
+    }
+    p{
+        background: yellow;
+    }
+</style>
+<body>
+    <!-- 
+        
+        首先要清楚得是 如果元素固定了宽度，数字和字母是不受宽度限制的，会跑出宽度，中文不会
+
+        min-content 能压缩到多小就压缩到多小
+        max-content 内容的最大的宽度
+
+        如果过设置 max-content 那么p和span谁的宽度大，div的宽度就是谁，min-content 相反
+     -->
+    <div class="wrap">  
+        <p>
+            安防十大法师法撒旦法师法师我是p标签
+        </p>
+        <span>我是中文</span>
+    </div>
+    <div>我是其他的div，看看这个属性会不会影响空间，不会影响正常布局的，还是占据一行，如果宽度变小了，其他的都是margin</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .inner{
+        width:100px;
+        height:100px;
+        background: red;
+        position: absolute;
+        margin: auto;
+        left:0;right:0;bottom: 0;top: 0;
+    }
+</style>
+<body>
+    <!-- 
+
+        元素居中
+
+        margin:auto 
+
+            适用于：宽度为父元素，自己的宽度固定或者设置了值（水平方向） （是想，如果要margin肯定外面得有空间）
+            垂直方向，因为以自己的高度为参照，所以垂直居中不管用，这时候可以用定位，
+            其实 1 的width:200px; 相当于2 的-webkit-fit-content都是设置宽度的
+
+     -->
+     1. 
+     <span style="display: block;margin: auto;width:200px;">
+         时代峰峻拉可适当
+     </span>
+
+     2.
+     <span  style="width:-webkit-fit-content;display: block;margin: auto;">
+        时代峰峻拉可适当
+     </span>
+
+
+     <div   style="position: relative;width:500px;height:500px;border:1px solid red;">
+        <div class="inner">
+
+        </div>
+     </div>
+
+
+</body>
+</html>

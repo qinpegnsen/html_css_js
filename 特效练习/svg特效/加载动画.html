@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+  .PCwaiting {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin-left: -30px;
+  margin-top: -50px;
+  z-index: 8888;
+}
+
+.PCwaiting .circle-box {
+  position: absolute;
+  -webkit-transform: rotate(136deg);
+  transform: rotate(136deg);
+}
+
+.PCwaiting .circle-box .svg {
+  -webkit-animation: am-waiting 0.7s linear infinite;
+  animation: am-waiting 0.7s linear infinite;
+}
+
+.PCwaiting .circle-box .svg .circle {
+  stroke: #3366ff !important;
+}
+
+.PCwaiting .circle-box.inner {
+  left: 12px;
+  top: 12px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.PCwaiting .circle-box.inner .svg {
+  -webkit-animation-name: am-waiting-2;
+  animation-name: am-waiting-2;
+}
+
+
+
+@keyframes am-waiting {
+  from {
+  }
+  to {
+    -webkit-transform: rotate(-1turn);
+    transform: rotate(-1turn);
+  }
+}
+
+
+
+@keyframes am-waiting-2 {
+  from {
+  }
+  to {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+</style>
+<body>
+    <div class="PCwaiting local">
+        <div class="circle-box outer">
+       <svg class="svg" width="60" height="60">
+           <!--stroke-dasharray  指定短划线和缺口的长度 数与数之间用逗号或者空白隔开  -->
+       <circle class="circle" cx="30" cy="30" r="26" stroke-width="5" stroke="#378CEE" fill="none" stroke-dasharray="122 164"></circle>
+         </svg></div>
+       <div class="circle-box inner">
+       <svg class="svg" width="42" height="42">
+       <circle class="circle"  cx="21" cy="21" r="16" stroke-width="3" stroke="#378CEE" fill="none" stroke-dasharray="75 101"></circle>
+         </svg>
+       </div>
+     </div>
+</body>
+</html>
